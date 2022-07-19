@@ -1,0 +1,70 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github Profile in Node.js and Express</title>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+      <div class="container">
+          <!--<img src="GitHublogo.png" class="img-fluid" alt="Responsive image">-->
+          <h1 class="text-center" style="margin-top:20px;font-size:50px;">
+            <b>Github Explorer</b>
+          </h1>
+          <form action="/getinfo" method="post">
+              <div class="form-group" style="margin-top:20px;">
+                  <!--<label for="email">Github Username:</label>-->
+                  <input type="text" class="form-control" name="username" placeholder="Enter Github Username" id="">
+              </div>
+              <div class="form-group">
+                  <button class="btn btn-info btn-block">
+                      Search information
+                  </button>
+              </div>
+          </form>
+ 
+          <div id="result">
+              <%if(profile){%>
+ 
+                <table class="table table-dark table-striped-columns">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>UserName</th>
+                            <th>Public_Repos</th>
+                            <th>Followers</th>
+                            <th>Location</th>
+                            <th>Bio</th>
+                            <th>Repos</th>
+                            <th>Avatar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><%=profile.name%></td>
+                            <td><%=profile.company%></td>
+                            <td><%=profile.public_repos%></td>
+                            <td><%=profile.followers%></td>
+                            <td><%=profile.location%></td>
+                            <td><%=profile.bio%></td>
+                            <td><%=profile.repos_url%></td>
+                            <td>
+                                <img width="100" height="200" class="img-thumbnail img-responsive" src="<%=profile.avatar_url%>" alt="">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+              <%}%>
+          </div>
+      </div>
+  </body>
+</html>
